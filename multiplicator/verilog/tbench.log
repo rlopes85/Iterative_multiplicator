@@ -1,5 +1,16 @@
 Using language generation: IEEE1364-2005,no-specify,xtypes,icarus-misc
 PARSING INPUT
+LOCATING TOP-LEVEL MODULES
+   multiplication
+ELABORATING DESIGN
+RUNNING FUNCTORS
+ ... 1 iterations deleted 4 dangling signals and 0 events.
+ ... 2 iterations deleted 4 dangling signals and 3 events.
+CALCULATING ISLANDS
+CODE GENERATION
+ ... invoking target_design
+STATISTICS
+lex_string: add_count=93 hit_count=93
 Icarus Verilog version 0.9.5  (v0_9_5)
 
 Copyright 1998-2010 Stephen Williams
@@ -18,4 +29,4 @@ Copyright 1998-2010 Stephen Williams
   with this program; if not, write to the Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-translate: /usr/lib64/ivl/ivlpp  -v -L -F"/tmp/ivrlg26c198a5c" -f"/tmp/ivrlg6c198a5c" -p"/tmp/ivrli6c198a5c"  | /usr/lib64/ivl/ivl -v -C"/tmp/ivrlh6c198a5c" -C"/usr/lib64/ivl/vvp.conf" -- -
+translate: /usr/lib64/ivl/ivlpp  -v -L -F"/tmp/ivrlg25554ae1b" -f"/tmp/ivrlg5554ae1b" -p"/tmp/ivrli5554ae1b"  | /usr/lib64/ivl/ivl -v -C"/tmp/ivrlh5554ae1b" -C"/usr/lib64/ivl/vvp.conf" -- -
