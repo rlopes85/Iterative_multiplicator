@@ -1,4 +1,4 @@
-//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 //  Shift-and-add multiplier
 //
 //  First practical project - Digital Systems Design
@@ -38,12 +38,12 @@ module multiplication(
     
     reg     [32:0]  SRA;
     reg     [31:0]  SRB;
-    reg     [31:0]  RA;           // D flip-flop
-    reg     [5:0]   counter;     //for counting 32 iterations
+    reg     [31:0]  RA;       // D flip-flop
+    reg     [5:0]   counter;  //for counting 32 iterations
     
     //wires
     wire            lsb_A,
-                    lsb_B; //LSB of each shift-register, has to be wire for assign
+                    lsb_B;    //LSB of each shift-register, has to be wire for assign
     
     wire    [32:0]  res_add;
     wire    [31:0]  Y;    
@@ -75,13 +75,14 @@ module multiplication(
     
     //AND circuit
     assign Y = lsb_B ? RA : 0;
-   
+    
     //adder
     assign res_add = Y + SRA;
     
     //output
     assign P[31:0] = SRB;
     assign P[63:32] = SRA[31:0];
+    
     
     //shift-register A
     always @(posedge clock)
@@ -114,8 +115,9 @@ module multiplication(
                 end
             else if (sh) //state S3
                 begin
-                    SRB <= SRB >> 1;
-                    SRB[31] <= lsb_A;
+                    SRB <= {res_add[0],SRB[31:1]};//***concatenation betwen lsb SRA amd bits 31 to 1 from SRB
+                    //SRB <= SRB >> 1;
+                    //SRB[31] <= lsb_A;
                 end
         end
     
